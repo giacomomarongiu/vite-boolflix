@@ -19,6 +19,15 @@ film trovato:
 3. Lingua
 4. Voto
 
+## Milestone 2:
+Trasformiamo la stringa statica della lingua in una vera e propria bandiera della
+nazione corrispondente, gestendo il caso in cui non abbiamo la bandiera della
+nazione ritornata dall’API (le flag non ci sono in FontAwesome).
+Allarghiamo poi la ricerca anche alle serie tv. Con la stessa azione di ricerca
+dovremo prendere sia i film che corrispondono alla query, sia le serie tv, stando
+attenti ad avere alla fine dei valori simili. Le serie e i film hanno campi nel JSON di
+risposta diversi, simili ma non sempre identici
+
 
 
 ### Steps
@@ -34,3 +43,9 @@ film trovato:
 - Creo un array di oggetti che sia strutturato per riconoscere le bandierine
 - Creo una funzione che a ogni abbreviazione di lingua (es. de,it ecc) faccia coincidere una bandiera
 - Gestisco il caso in cui non ci sia una lingua
+
+-Creo un array di "Promesse"
+-Pusho le promesse nel mio array
+-Gestisco l'array con Promise.all
+-Gestisco la struttura che mi rende
+-Gestisco le differenze tra Serie tv e Film nella mia card
