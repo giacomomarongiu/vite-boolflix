@@ -7,11 +7,11 @@ export const state = reactive({
     message: 'This is a test',
     searchedString: "",
     filteredProducts:[],
-
-
-
+    
     searchProduct() {
-        axios.get('https://api.themoviedb.org/3/search/movie?api_key=edd145a61b3656fc84c3adb6db810c97&query=le+iene')
+        //Verifco la stringa passata
+        console.log(this.searchedString);
+        axios.get('https://api.themoviedb.org/3/search/movie?api_key=edd145a61b3656fc84c3adb6db810c97&language=it-IT&query=' + this.searchedString)
             .then((response) => {
                 //Verifico
                 console.log(response);
