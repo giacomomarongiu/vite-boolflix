@@ -12,11 +12,11 @@ export default {
 
 <template>
     <div id="search-bar">
-<!--         Test
+        <!--Test
         <p>{{ this.state.searchedString }}</p> -->
         <input type="text" placeholder="Cerca un Film..." v-model="this.state.searchedString">
     </div>
-    <button>Cerca</button>
+    <button @click="this.state.searchProduct()">Cerca</button>
 
 </template>
 
