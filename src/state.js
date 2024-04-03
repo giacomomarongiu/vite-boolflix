@@ -27,10 +27,10 @@ export const state = reactive({
                 //console.log(product);
                 //console.log(product.data);
                 console.log(list.data.results); //E' un array di oggetti
-                // Devo ciclare di nuvo
+                // Devo ciclare di nuovo
                 (list.data.results).forEach((product) => {
                     // Aggiungo alla mia lista da stampare 
-                    //console.log(product);
+                    console.log(product.poster_path);
                     this.filteredProducts.push(product)
                 }
                 )
