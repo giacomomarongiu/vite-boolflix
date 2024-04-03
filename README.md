@@ -29,3 +29,8 @@ film trovato:
 - Creo nello state una funzione searchMovie che:
 -- Fa una chiamata API (Importo axios)
 -- SE la stringa inserita coincide con qualche file stampo 1/2/3/4
+
+- Creo una nuova componente AppMain e stampo i risultati lì
+- Creo un array di oggetti che sia strutturato per riconoscere le bandierine
+- Creo una funzione che a ogni abbreviazione di lingua (es. de,it ecc) faccia coincidere una bandiera
+- Gestisco il caso in cui non ci sia una lingua
