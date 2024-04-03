@@ -10,8 +10,10 @@ export default {
     data() {
         return {
             state,
+            productsToPrint:[],
         }
     },
+
     }
 </script>
 

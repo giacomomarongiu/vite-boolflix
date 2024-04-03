@@ -10,6 +10,7 @@ export const state = reactive({
     filteredProducts: [],
 
     searchProduct() {
+        this.filteredProducts=[];
         //Verifco la stringa passata
         //console.log(this.searchedString);
         this.myPromiseList.push(axios.get('https://api.themoviedb.org/3/search/movie?api_key=edd145a61b3656fc84c3adb6db810c97&language=it-IT&query=' + this.searchedString))
