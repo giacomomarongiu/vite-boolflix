@@ -12,9 +12,6 @@ export default {
             state,
         }
     },
-    methods: {
-        
-    }
     }
 </script>
 
