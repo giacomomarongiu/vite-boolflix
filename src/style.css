@@ -1,5 +1,27 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'roboto', sans-serif;
+    font-size: small;
+}
+
+.container{
+    width: 80%;
+    margin: auto;
+}
+
 .img-null {
     width: 200px;
     height: 268px;
     text-align: center;
+}
+
+.card {
+    max-width: 100%;
+
+    img {
+        max-width: 100%;
+        object-fit: contain;
+    }
 }

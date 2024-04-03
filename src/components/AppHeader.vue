@@ -11,13 +11,33 @@ export default {
 </script>
 
 <template>
-    <div id="search-bar">
-        <!--Test
-        <p>{{ this.state.searchedString }}</p> -->
-        <input type="text" placeholder="Cerca un Film..." v-model="this.state.searchedString">
-    </div>
-    <button @click="this.state.searchProduct()">Cerca</button>
+    <header class="">
+        <div class="nav container">
+            <div class="logo">BOOLFLIX</div>
+            <div id="search-bar">
+                <span><input type="text" placeholder="Cerca un Film..." v-model="this.state.searchedString"></span>
+                <span><button @click="this.state.searchProduct()">Cerca</button></span>
+            </div>
+        </div>
+    </header>
 
 </template>
 
-<style lang="scss"></style>
+<style>
+header {
+    height: 40px;
+    background-color: black;
+    color: red;
+    display: flex;
+    align-items: center;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .logo{
+        font-weight: bolder;
+    }
+}
+</style>

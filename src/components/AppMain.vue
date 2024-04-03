@@ -17,9 +17,21 @@ export default {
 
 <template>
     <main class=" ">
-        <ProductCard />
-     </main>
+        <div class="container">
+            <div class="row" v-if="this.state.filteredProducts.length > 0">
+                <ProductCard :product="product" v-for="product in state.filteredProducts" />
+            </div>
+        </div>
+    </main>
 
 </template>
 
-<style></style>
+<style>
+.row{
+display: flex;
+flex-wrap: wrap;
+}
+.col-4{
+max-width: 33%;
+}
+    </style>
