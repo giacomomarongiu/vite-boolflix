@@ -27,7 +27,7 @@ export default {
             <div class="card-main">
                 <img v-if="product.poster_path != null" class="card-img" :src="(this.imgUrl) + product.poster_path"
                     alt="">
-                <div v-else class="img-null"> File non presente </div>
+                <img v-else class="img-null" src="../assets/imgs/none.png">
             </div>
 
 
