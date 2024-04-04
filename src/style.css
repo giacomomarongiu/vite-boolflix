@@ -6,7 +6,7 @@
     font-size: small;
 }
 
-.container{
+.container {
     width: 80%;
     margin: auto;
 }
@@ -18,10 +18,39 @@
 }
 
 .card {
-    max-width: 100%;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+
+    .card-hover {
+        display: flex;
+        align-items: center;
+        position: absolute;
+        background-color: rgba(0, 0, 0, 0.523);
+        width: 100%;
+        height: 100%;
+        padding: 1rem;
+        font-weight: bold;
+        font-size:smaller;
+        display: none;
+        color: bisque;
+    }
 
     img {
         max-width: 100%;
-        object-fit: contain;
+        object-fit: cover;
     }
+}
+
+.card:hover .card-hover {
+    display: block;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: auto
 }

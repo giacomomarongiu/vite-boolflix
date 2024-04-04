@@ -29,11 +29,5 @@ export default {
 </template>
 
 <style>
-.row{
-display: flex;
-flex-wrap: wrap;
-}
-.col-4{
-max-width: 33%;
-}
+
     </style>

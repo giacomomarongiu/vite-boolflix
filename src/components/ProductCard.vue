@@ -21,17 +21,17 @@ export default {
 
 <template>
 
-    <div class="col-4">
+    <div class="col">
         <div class="card">
 
-            <div class="card-img">
+            <div class="card-main">
                 <img v-if="product.poster_path != null" class="card-img" :src="(this.imgUrl) + product.poster_path"
                     alt="">
                 <div v-else class="img-null"> File non presente </div>
             </div>
 
 
-            <div class="card-bottom">
+            <div class="card-hover">
                 <!--Titolo-->
                 <div v-if="product.title">Titolo: {{ product.title }}</div>
                 <div v-else>Titolo: {{ product.name }}</div>
@@ -51,11 +51,9 @@ export default {
                         <i class="fa-solid fa-star"></i>
                     </span>
                 </div>
+                <div v-if="product.overview">{{ product.overview }}</div>
             </div>
         </div>
-
-
-        <br>
     </div>
 
 </template>
@@ -65,6 +63,4 @@ export default {
     width: 30px;
     height: 15px;
 }
-
-
 </style>
