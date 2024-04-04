@@ -25,20 +25,5 @@ export default {
 </template>
 
 <style>
-header {
-    height: 40px;
-    background-color: black;
-    color: red;
-    display: flex;
-    align-items: center;
-}
 
-.nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    .logo{
-        font-weight: bolder;
-    }
-}
 </style>

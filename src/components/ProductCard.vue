@@ -35,23 +35,33 @@ export default {
                 <!--Titolo-->
                 <div v-if="product.title">Titolo: {{ product.title }}</div>
                 <div v-else>Titolo: {{ product.name }}</div>
+
                 <!--Titolo Originale-->
                 <div v-if="product.original_title">Titolo Originale: {{ product.original_title }}</div>
                 <div v-else>Titolo Originale: {{ product.original_name }}</div>
 
+                <!--Lingua Originale-->
                 <span>Lingua Originale: </span>
+                <!--Se la ho stampo la bandiera-->
                 <span v-if="this.flags.includes(product.original_language)">
                     <img class="flag" :src='"../src/assets/imgs/" + product.original_language + ".png"' alt="">
                 </span>
+                <!--Se no stampo badiera ONU-->
                 <span v-else>
                     <img class="flag" src="../assets/imgs/onu.png" alt="">
                 </span>
+
+                <!--Voto-->
+                <!--Divido ed arrotondo per eccesso-->
                 <div>Voto: {{ Math.ceil(product.vote_average / 2) }}
+                    <!--Stampo il totale delle stelline-->
                     <span v-for="index in (Math.ceil(product.vote_average / 2))">
                         <i class="fa-solid fa-star"></i>
                     </span>
                 </div>
-                <div v-if="product.overview">{{ product.overview }}</div>
+
+                <!--Descrizione-->
+                <div class="overview" v-if="product.overview">{{ product.overview }}</div>
             </div>
         </div>
     </div>
@@ -59,8 +69,8 @@ export default {
 </template>
 
 <style scoped>
-.flag {
-    width: 30px;
-    height: 15px;
+.overview {
+    max-height: 60%;
+    overflow-y: scroll;
 }
 </style>

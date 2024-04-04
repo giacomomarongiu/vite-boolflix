@@ -6,16 +6,48 @@
     font-size: small;
 }
 
+header {
+    height: 40px;
+    background-color: black;
+    color: red;
+    display: flex;
+    align-items: center;
+}
+
+.flag {
+    width: 30px;
+    height: 15px;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .logo {
+        font-weight: bolder;
+    }
+}
+
+main{
+background-color: rgb(255, 0, 0);
+}
+
 .container {
     width: 80%;
     margin: auto;
 }
+
+
 
 .img-null {
     width: 200px;
     height: 268px;
     text-align: center;
 }
+
+
+
 
 .card {
     width: 100%;
@@ -24,6 +56,7 @@
     flex-direction: column;
     justify-content: space-between;
     position: relative;
+    border: 1px solid black;
 
     .card-hover {
         display: flex;
@@ -31,12 +64,13 @@
         position: absolute;
         background-color: rgba(0, 0, 0, 0.523);
         width: 100%;
-        height: 100%;
+        height: 98%;
         padding: 1rem;
         font-weight: bold;
         font-size:smaller;
         display: none;
         color: bisque;
+        
     }
 
     img {
@@ -45,12 +79,20 @@
     }
 }
 
+
+
+
 .card:hover .card-hover {
     display: block;
 }
 
+
+
+
 .row {
     display: flex;
+    justify-content: center;
     flex-wrap: wrap;
-    margin: auto
+    margin: auto;
+    padding: 5%;
 }
