@@ -4,7 +4,9 @@ import axios from 'axios';
 
 export const state = reactive({
 
-    message: 'This is a test',
+    apiURL: 'https://api.themoviedb.org/3/search/multi?api_key=',
+    apiKey: "edd145a61b3656fc84c3adb6db810c97",
+    apiLangIt: '&language=it-IT&query=',
     searchedString: "",
     myPromiseList: [],
     filteredProducts: [],
@@ -16,9 +18,7 @@ export const state = reactive({
         this.myPromiseList = [];
         //Verifco la stringa passata
         //console.log(this.searchedString);
-        this.myPromiseList.push(axios.get('https://api.themoviedb.org/3/search/movie?api_key=edd145a61b3656fc84c3adb6db810c97&language=it-IT&query=' + this.searchedString))
-        this.myPromiseList.push(axios.get('https://api.themoviedb.org/3/search/tv?api_key=edd145a61b3656fc84c3adb6db810c97&language=it-IT&query=' + this.searchedString))
-        //Vedo se ho tutte le promesse
+        this.myPromiseList.push(axios.get(this.apiURL + this.apiKey + this.apiLangIt + this.searchedString))        //Vedo se ho tutte le promesse
         console.log(this.myPromiseList); //Array di promesse
         (Promise.all(this.myPromiseList)).then((response) => {
             //Verifico
@@ -34,7 +34,7 @@ export const state = reactive({
                 // Devo ciclare di nuovo
                 (list.data.results).forEach((product) => {
                     // Aggiungo alla mia lista da stampare 
-                    //console.log(product.poster_path);
+                    console.log(product);
                     this.filteredProducts.push(product)
                 }
                 )
