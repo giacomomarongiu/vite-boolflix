@@ -40,6 +40,11 @@ export default {
                 <div v-if="product.original_title">Titolo Originale: {{ product.original_title }}</div>
                 <div v-else>Titolo Originale: {{ product.original_name }}</div>
 
+                <!--Genere-->
+                <div v-if="product.genres.length > 0">Genere:
+                    <span v-for="genre in product.genres">{{ genre }}, </span>
+                </div>
+
                 <!--Lingua Originale-->
                 <span>Lingua Originale: </span>
                 <!--Se la ho stampo la bandiera-->
@@ -60,8 +65,17 @@ export default {
                     </span>
                 </div>
 
+                <!--Cast-->
+                <div v-if="product.cast.length > 0">Cast:
+                    <!--Limito la mia stampa a 5 elemeti con slice-->
+                    <span v-for="(name,index) in product.cast.slice(0,5)">{{ name }} </span>
+
+                </div>
+
                 <!--Descrizione-->
-                <div class="overview" v-if="product.overview">{{ product.overview }}</div>
+                <div> Descrizione:
+                    <div class="overview" v-if="product.overview">{{ product.overview }}</div>
+                </div>
             </div>
         </div>
     </div>
