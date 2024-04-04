@@ -4,8 +4,9 @@ import axios from 'axios';
 
 export const state = reactive({
 
-    apiURL: 'https://api.themoviedb.org/3/search/multi?api_key=',
-    apiKey: "edd145a61b3656fc84c3adb6db810c97",
+    apiURL: 'https://api.themoviedb.org/3/search/multi',
+    apiURLDefault: "https://api.themoviedb.org/3/1179829/credits?api_key=edd145a61b3656fc84c3adb6db810c97",
+    apiKey: "?api_key=edd145a61b3656fc84c3adb6db810c97",
     apiLangIt: '&language=it-IT&query=',
     searchedString: "",
     myPromiseList: [],
@@ -42,12 +43,24 @@ export const state = reactive({
             })
             //Gestisco la struttura differente dei dei due oggetti
             //Assegno al mio array vuoto i prodotti
-            console.log(this.filteredProducts);
+            console.log();
+            //Aggiungo gli attori
+            this.whatsTheCast(this.filteredProducts)
         }
         ).catch(err => {
             console.error(err.message)
         })
     },
 
+    whatsTheCast(productList){
+        productList.forEach(element => {
+            //Vedo se pesco giusto
+            console.log(element.media_type);
+            console.log(element.id);
+            //Link provato su postman su cui potrò lavorare
+            //https://api.themoviedb.org/3/movie/1179829/credits?api_key=edd145a61b3656fc84c3adb6db810c97
+            axios.get(this.apiURLDefault + element.media_type + "/" + element.id + "/credits" + this.apiKey )
+        });
+    }
 
 })
