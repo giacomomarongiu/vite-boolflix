@@ -5,7 +5,7 @@ import axios from 'axios';
 export const state = reactive({
 
     apiURL: 'https://api.themoviedb.org/3/search/multi',
-    apiURLDefault: "https://api.themoviedb.org/3/1179829/credits?api_key=edd145a61b3656fc84c3adb6db810c97",
+    apiURLDefault: "https://api.themoviedb.org/3/",
     apiKey: "?api_key=edd145a61b3656fc84c3adb6db810c97",
     apiLangIt: '&language=it-IT&query=',
     searchedString: "",
@@ -35,7 +35,7 @@ export const state = reactive({
                 // Devo ciclare di nuovo
                 (list.data.results).forEach((product) => {
                     // Aggiungo alla mia lista da stampare 
-                    console.log(product);
+                    // console.log(product);
                     this.filteredProducts.push(product)
                 }
                 )
@@ -52,14 +52,32 @@ export const state = reactive({
         })
     },
 
-    whatsTheCast(productList){
-        productList.forEach(element => {
+    whatsTheCast(productList) {
+        //Ciclo nella mia lista pronta ogni prodotto
+        productList.forEach(product => {
             //Vedo se pesco giusto
-            console.log(element.media_type);
-            console.log(element.id);
+            //console.log(product.media_type);
+            //console.log(product.id);
+            //Aggiungo la proprietà cast al mio oggetto
+            product.cast = [];
+            //console.log(product);
             //Link provato su postman su cui potrò lavorare
             //https://api.themoviedb.org/3/movie/1179829/credits?api_key=edd145a61b3656fc84c3adb6db810c97
-            axios.get(this.apiURLDefault + element.media_type + "/" + element.id + "/credits" + this.apiKey )
+            //Compongo la chiamata ajax "dinamicamente" (il link di movie e tv è uguale, basta cambiate la stringa)
+            axios.get(this.apiURLDefault + product.media_type + "/" + product.id + "/credits" + this.apiKey)
+                .then(response => {
+                    // Cerco quello che mi serve
+                    console.log(response.data); //E' un array
+                    // Faccio un ciclo
+                    response.data.cast.forEach(person => {
+                        // console.log(person.name);
+                        //Aggiungo l'attore al mio array
+                        (product.cast).push(person.name)
+                        //console.log(product.cast);
+                    });
+                })
+            //Verifco il nuovo oggetto
+            //console.log(product);
         });
     }
 
