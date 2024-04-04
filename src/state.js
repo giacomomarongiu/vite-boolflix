@@ -11,6 +11,8 @@ export const state = reactive({
     searchedString: "",
     myPromiseList: [],
     filteredProducts: [],
+    seriesGenres: [],
+    moviesGenres: [],
 
 
     searchProduct() {
@@ -105,9 +107,25 @@ export const state = reactive({
                     });
                 })
             //console.log(product);
-            console.log(product.genres);
+            //console.log(product.genres);
 
         });
+    },
+
+    giveMeGenres() {
+        axios.get(this.apiURLDefault + "genre/" + "tv" + "/list" + this.apiKey)
+            .then(response => {
+                // Cerco quello che mi serve
+                console.log(response.data.genres); //E' un array di oggetti
+                //this.seriesGenres = response;
+                //console.log(this.seriesGenres);
+                response.data.genres.forEach(object => {
+                    this.seriesGenres.push(object.name)
+                });
+                console.log(this.seriesGenres);
+            })
+
     }
+
 
 })

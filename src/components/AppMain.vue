@@ -14,12 +14,17 @@ export default {
         }
     },
 
+    mounted(){
+        this.state.giveMeGenres()
+    }
+
     }
 </script>
 
 <template>
     <main class=" ">
         <div class="container">
+
             <div class="row" v-if="this.state.filteredProducts.length > 0">
                 <ProductCard :product="product" v-for="product in state.filteredProducts" />
             </div>
