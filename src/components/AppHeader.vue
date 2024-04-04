@@ -15,9 +15,9 @@ export default {
         <div class="nav container">
             <div class="logo">BOOLFLIX</div>
             <div id="search-bar">
-                <span><input type="text" placeholder="Cerca un Film..." v-model="this.state.searchedString"></span>
-                <span><button @click="this.state.searchProduct()"
-                        @keyup.enter="this.state.searchProduct()">Cerca</button></span>
+                <span><input type="text" placeholder="Cerca un Film..." v-model="this.state.searchedString"
+                        @keyup.enter="this.state.searchProduct()"></span>
+                <span><button @click="this.state.searchProduct()">Cerca</button></span>
             </div>
         </div>
     </header>
