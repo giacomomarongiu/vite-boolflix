@@ -37,8 +37,12 @@ export const state = reactive({
                 // Devo ciclare di nuovo
                 (list.data.results).forEach((product) => {
                     // Aggiungo alla mia lista da stampare 
-                    // console.log(product);
-                    this.filteredProducts.push(product)
+                    // Aggiungo il prodotto al mio array solo se il media_type è tv o movie
+                    //console.log(product.media_type);
+                    if (product.media_type !== "person") {
+                        console.log(product.media_type);
+                        this.filteredProducts.push(product)
+                    }
                 }
                 )
 
@@ -112,7 +116,7 @@ export const state = reactive({
         });
     },
 
-    giveMeGenres() {
+    /* giveMeGenres() {
         axios.get(this.apiURLDefault + "genre/" + "tv" + "/list" + this.apiKey)
             .then(response => {
                 // Cerco quello che mi serve
@@ -125,7 +129,7 @@ export const state = reactive({
                 console.log(this.seriesGenres);
             })
 
-    }
+    } */
 
 
 })

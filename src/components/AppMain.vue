@@ -15,7 +15,7 @@ export default {
     },
 
     mounted(){
-        this.state.giveMeGenres()
+       /*  this.state.giveMeGenres() */
     }
 
     }
