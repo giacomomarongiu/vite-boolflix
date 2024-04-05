@@ -13,6 +13,8 @@ export const state = reactive({
     filteredProducts: [],
     seriesGenres: [],
     moviesGenres: [],
+    seriesFilter: [],
+    moviesFilter: [],
 
 
     searchProduct() {
@@ -40,7 +42,7 @@ export const state = reactive({
                     // Aggiungo il prodotto al mio array solo se il media_type è tv o movie
                     //console.log(product.media_type);
                     if (product.media_type !== "person") {
-                        console.log(product.media_type);
+                        //console.log(product.media_type);
                         this.filteredProducts.push(product)
                     }
                 }
@@ -112,24 +114,74 @@ export const state = reactive({
                 })
             //console.log(product);
             //console.log(product.genres);
+            /* 
+                        //Avendo l'array in locale gestisco i generi senza chiamata axios
+                        console.log(product.genre_ids);
+                        product.genre_ids.forEach(element => {
+                            console.log(element);
+                            //Se è una serie tv utilizzo in generi di seriesGenres
+                            if (product.media_type === "tv") {
+                                //console.log(product.media_type);
+                                console.log(this.seriesGenres);
+                                if (this.seriesGenres.includes(element)) {
+                                    console.log(element);
+                                    (product.genres).push(element.name)
+                                }
+                            } else {
+                                //Se è un film utilizzo in generi di moviesGenres
+                                //console.log(product.media_type);
+                                if (this.moviesGenres.includes(element)) {
+                                    (product.genres).push(element.name)
+                                }
+                            }
+                            console.log(product.genres);
+            
+                        }); */
 
         });
     },
 
-    /* giveMeGenres() {
+    giveMeGenres() {
+        //Ottengo Array di generi per serie TV
         axios.get(this.apiURLDefault + "genre/" + "tv" + "/list" + this.apiKey)
             .then(response => {
                 // Cerco quello che mi serve
-                console.log(response.data.genres); //E' un array di oggetti
+                //console.log(response.data.genres); //E' un array di oggetti
                 //this.seriesGenres = response;
                 //console.log(this.seriesGenres);
                 response.data.genres.forEach(object => {
                     this.seriesGenres.push(object.name)
                 });
-                console.log(this.seriesGenres);
+                //console.log(this.seriesGenres);
             })
+        //Ottengo Array di generi per MOVIE
+        axios.get(this.apiURLDefault + "genre/" + "movie" + "/list" + this.apiKey)
+            .then(response => {
+                // Cerco quello che mi serve
+                //console.log(response.data.genres); //E' un array di oggetti
+                //this.seriesGenres = response;
+                //console.log(this.seriesGenres);
+                response.data.genres.forEach(object => {
+                    this.moviesGenres.push(object.name)
+                });
+                // console.log(this.moviesGenres);
+            })
+    },
 
-    } */
+    filterByGenre() {
+        //Verifico se il mio array si aggiorna
+        console.log(this.moviesFilter);
+        console.log(this.seriesFilter);
+
+        this.filteredProducts.filter(element => {
+            console.log(element);
+            if (element.media_type==="movie") {
+                console.log(element.genres);
+            } else {
+                console.log(element.genres);
+            }
+        });
+    }
 
 
 })
