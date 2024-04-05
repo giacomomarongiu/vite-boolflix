@@ -79,6 +79,7 @@ export const state = reactive({
             //Aggiungo attori e genere
             this.whatsTheCast(this.filteredProducts)
             this.whatsTheGenre(this.filteredProducts)
+            this.filterByGenre()
             //la struttuta dei miei oggetti è già definitiva
             console.log(this.filteredProducts);
         }
@@ -223,13 +224,15 @@ export const state = reactive({
                 product.isVisible = true
             } else {
                 product.isVisible = false
+                //console.log("Qui");
                 //console.log(product);
-                //console.log(product.genres);
+                console.log(product.genres);
                 product.genres.forEach(genre => {
+                    console.log("Qui");
                     //Caso in cui sono Film
                     if ((product.media_type === "movie") && (this.moviesFilter.includes(genre))) {
                         //console.log(this.moviesFilter);
-                        console.log(genre);
+                        console.log(product.media_type);
                         product.isVisible = true
                         //Caso in cui sono SerieTV
                     } else if ((product.media_type === "tv") && (this.seriesFilter.includes(genre))) {

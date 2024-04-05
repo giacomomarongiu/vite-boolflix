@@ -24,7 +24,7 @@ export default {
                 <div class="movies">
                     <div class="movie" v-for="(movie_type, index) in state.moviesGenres">
                         <input type="checkbox" :id="movie_type" :value="movie_type" v-model="state.moviesFilter"
-                            @change="state.filterByGenre()">
+                            @change="state.filterByGenre(); ">
                         <label :for="movie_type"> {{ movie_type }} </label>
                     </div>
                 </div>
