@@ -89,13 +89,18 @@ header {
 
         .wrapper {
             position: relative;
-
+                padding: 1rem;
             .movies, .series {
+                padding: 1rem;
                 position: absolute;
+                z-index: 1;
+                top:35pxpx;
                 display: none;
-                height: 100px;
-                width: 350px;
+                height: 150px;
+                width: 400px;
+                border-radius: 10px;
                 background-color: #ff0202;
+                    border: 1px solid black;
                 color: black;
                 flex-direction: column;
                 flex-wrap: wrap;

@@ -7,7 +7,13 @@
     font-size: small;
 }
 
-
+header {
+    height: 40px;
+    background-color: black;
+    color: red;
+    display: flex;
+    align-items: center;
+}
 
 .flag {
     width: 25px;
