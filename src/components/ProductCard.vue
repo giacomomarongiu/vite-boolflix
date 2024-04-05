@@ -21,7 +21,7 @@ export default {
 
 <template>
 
-    <div class="col">
+    <div class="col" v-if="product.isVisible">
         <div class="card">
 
             <div class="card-main">
@@ -68,7 +68,7 @@ export default {
                 <!--Cast-->
                 <div v-if="product.cast.length > 0">Cast:
                     <!--Limito la mia stampa a 5 elemeti con slice-->
-                    <span v-for="(name,index) in product.cast.slice(0,5)">{{ name }} </span>
+                    <span v-for="(name, index) in product.cast.slice(0, 5)">{{ name }} </span>
 
                 </div>
 

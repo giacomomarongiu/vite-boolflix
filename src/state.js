@@ -15,6 +15,7 @@ export const state = reactive({
     moviesGenres: [],
     seriesFilter: [],
     moviesFilter: [],
+    filterdByGenresProduct:[],
 
 
     searchProduct() {
@@ -38,12 +39,16 @@ export const state = reactive({
                 //console.log(list.data.results); //E' un array di oggetti
                 // Devo ciclare di nuovo
                 (list.data.results).forEach((product) => {
+
                     // Aggiungo alla mia lista da stampare 
                     // Aggiungo il prodotto al mio array solo se il media_type è tv o movie
                     //console.log(product.media_type);
                     if (product.media_type !== "person") {
+                        product.isVisible = true
+                        //console.log(product);
                         //console.log(product.media_type);
                         this.filteredProducts.push(product)
+
                     }
                 }
                 )
@@ -51,7 +56,7 @@ export const state = reactive({
             })
             //Gestisco la struttura differente dei dei due oggetti
             //Assegno al mio array vuoto i prodotti
-            console.log();
+            //console.log();
             //Aggiungo attori e genere
             this.whatsTheCast(this.filteredProducts)
             this.whatsTheGenre(this.filteredProducts)
@@ -170,18 +175,28 @@ export const state = reactive({
 
     filterByGenre() {
         //Verifico se il mio array si aggiorna
-        console.log(this.moviesFilter);
-        console.log(this.seriesFilter);
+        //console.log(this.moviesFilter);
+        //console.log(this.seriesFilter);
 
-        this.filteredProducts.filter(element => {
-            console.log(element);
-            if (element.media_type==="movie") {
-                console.log(element.genres);
-            } else {
-                console.log(element.genres);
-            }
+        //Ciclo all'interno dei prodotti della ricerca
+        this.filterdByGenresProduct = this.filteredProducts.filter(product => {
+            console.log(product);
+            //console.log(product.genres);
+            product.genres.forEach(genre => {
+                //Caso in cui sono Film
+                if ((product.media_type === "movie") && (this.moviesFilter.includes(genre))) {
+                    console.log(this.moviesFilter);
+                    console.log(genre);
+                    return true
+                    //Caso in cui sono SerieTV
+                } else if ((product.media_type === "tv") && (this.seriesFilter.includes(genre))) {
+                    console.log(this.seriesFilter);
+                    console.log(genre);
+                    return false
+                }
+            })
+
         });
     }
-
 
 })
