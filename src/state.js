@@ -15,7 +15,7 @@ export const state = reactive({
     moviesGenres: [],
     seriesFilter: [],
     moviesFilter: [],
-    filterdByGenresProduct:[],
+    filterdByGenresProducts: [],
 
 
     searchProduct() {
@@ -179,23 +179,29 @@ export const state = reactive({
         //console.log(this.seriesFilter);
 
         //Ciclo all'interno dei prodotti della ricerca
-        this.filterdByGenresProduct = this.filteredProducts.filter(product => {
-            console.log(product);
-            //console.log(product.genres);
-            product.genres.forEach(genre => {
-                //Caso in cui sono Film
-                if ((product.media_type === "movie") && (this.moviesFilter.includes(genre))) {
-                    console.log(this.moviesFilter);
-                    console.log(genre);
-                    return true
-                    //Caso in cui sono SerieTV
-                } else if ((product.media_type === "tv") && (this.seriesFilter.includes(genre))) {
-                    console.log(this.seriesFilter);
-                    console.log(genre);
-                    return false
-                }
-            })
+        /* this.filterdByGenresProducts =  */
 
+        this.filteredProducts.forEach(product => {
+            if (this.moviesFilter.length == 0 && this.seriesFilter.length == 0) {
+                product.isVisible = true
+            } else {
+                product.isVisible = false
+                //console.log(product);
+                //console.log(product.genres);
+                product.genres.forEach(genre => {
+                    //Caso in cui sono Film
+                    if ((product.media_type === "movie") && (this.moviesFilter.includes(genre))) {
+                        //console.log(this.moviesFilter);
+                        console.log(genre);
+                        product.isVisible = true
+                        //Caso in cui sono SerieTV
+                    } else if ((product.media_type === "tv") && (this.seriesFilter.includes(genre))) {
+                        //console.log(this.seriesFilter);
+                        console.log(genre);
+                        product.isVisible = true
+                    }
+                })
+            }
         });
     }
 
