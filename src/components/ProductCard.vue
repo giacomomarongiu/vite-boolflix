@@ -73,8 +73,8 @@ export default {
                 </div>
 
                 <!--Descrizione-->
-                <div> Descrizione:
-                    <div class="overview" v-if="product.overview">{{ product.overview }}</div>
+                <div class="overview" > Descrizione:
+                    <div v-if="product.overview">{{ product.overview }}</div>
                 </div>
             </div>
         </div>
@@ -84,7 +84,7 @@ export default {
 
 <style scoped>
 .overview {
-    max-height: 60%;
+    max-height: 30%;
     overflow-y: scroll;
 }
 </style>

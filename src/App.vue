@@ -18,7 +18,6 @@ export default {
 </script>
 
 <template>
-<!--   <h1>{{this.state.message}}</h1>-->
 <AppHeader />
 <AppMain />
 </template>
